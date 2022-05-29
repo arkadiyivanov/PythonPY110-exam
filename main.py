@@ -50,9 +50,8 @@ def price():
 
 
 def author():
-    for index in range(random.randint(1, 3)):
-        aut = fake_.name()
-    return aut
+    aut_ = fake_.name()
+    return aut_
 
 
 for i in range(100):
