@@ -9,17 +9,19 @@ pk = 1
 
 def main():
     model_ = {"model": model, "pk": pk,
-              "feilds": {"title": title(), "year": year(), "pages": pages(), "isbn13": isbn13(), "rating": rating(), "price": price(), "author": author()}}
+              "feilds": {"title": title(), "year": year(), "pages": pages(), "isbn13": isbn13(), "rating": rating(),
+                         "price": price(), "author": author()}}
 
-    with open('model.txt', 'w', encoding='utf-8') as f:
+    with open('model.txt', 'a', encoding='utf-8') as f:
         json.dump(model_, f, indent=4, ensure_ascii=False)
 
 
 def title():
-    title_ = {1: 'Сказки старого демона', 2: 'Путешествие назад', 3: 'Золото инков', 4: 'Притча', 5: 'Байки'}
+    title_ = ['Сказки старого демона', 'Путешествие назад', 'Золото инков', 'Притча', 'Байки']
     d = random.choice(title_)
-    with open("books.txt", "w") as f:
-        json.dump(d, f, indent=4, ensure_ascii=False)
+    with open("books.txt", "w", encoding='utf-8') as f:
+        json.dump(title_, f, indent=4, ensure_ascii=False)
+
     return d
 
 
@@ -48,9 +50,14 @@ def price():
 
 
 def author():
-    for i in range(3):
-        return fake_.name()
+    for index in range(random.randint(1, 3)):
+        aut = fake_.name()
+    return aut
 
+
+for i in range(100):
+    main()
+    pk += 1
 
 if __name__ == "__main__":
     main()
