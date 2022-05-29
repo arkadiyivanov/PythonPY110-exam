@@ -17,6 +17,7 @@ def main():
 
 
 def title():
+    """Список названия книг"""
     title_ = ['Сказки старого демона', 'Путешествие назад', 'Золото инков', 'Притча', 'Байки']
     d = random.choice(title_)
     with open("books.txt", "w", encoding='utf-8') as f:
@@ -26,32 +27,43 @@ def title():
 
 
 def year():
+    """Случайное значение года"""
     year_ = random.randint(1991, 2022)
     return year_
 
 
 def pages():
+    """Случайное количество страниц"""
     page = random.randrange(20, 1000)
     return page
 
 
 def isbn13():
+    """Книжный номер"""
     return fake_.isbn13()
 
 
 def rating():
+    """Рэйтинг книги """
     rating_ = random.random() * 5
     return rating_
 
 
 def price():
+    """Цена книги"""
     price_ = round(random.random(), 2) * 1000
     return price_
 
 
 def author():
-    aut_ = fake_.name()
-    return aut_
+    """Авторы """
+    list_ = []
+    for aut_ in range(1, 4):
+        c = fake_.name()
+        list_.append(c)
+
+    k = random.randint(1, 3)
+    return random.sample(list_, k)
 
 
 for i in range(100):
